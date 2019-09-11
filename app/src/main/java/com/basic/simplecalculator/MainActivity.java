@@ -105,6 +105,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 break;
             case R.id.btnClear:
+                clearTapped();
                 break;
             case R.id.btn0:
                 numberIsTapped(0);
@@ -153,12 +154,25 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
                 calculationString = stringNumberAtLeft;
 
+
             }
 
         } else {
             stringNumberAtLeft = currentNumber;
-            currentNumber = "";
+            currentNumber
+                    = "";
         }
         currentOperator = tappedOperator;
+    }
+
+    private void clearTapped() {
+        stringNumberAtLeft = "";
+        stringNumberAtRight = "";
+        currentNumber = "";
+        calculationsResult = 0;
+        textResult.setText("0");
+        currentOperator = null;
+        calculationString = "";
+
     }
 }
